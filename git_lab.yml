@@ -1,0 +1,30 @@
+include:
+  - template: Terraform.latest.gitlab-ci.yml
+stages:
+  - test
+  - validate
+  - plan
+  - deploy
+
+#image: hashicorp/terraform:1.10.5  # Official HashiCorp image
+#entrypoint: [""]
+
+before_script:
+  - terraform --version
+job_test:
+  stage: test
+  script:
+    - terraform init
+    - terraform fmt
+job_validate:
+  stage: validate
+  script:
+    - terraform validate
+job_plan:
+  stage: plan
+  script:
+    - terraform plan
+job_deploy:
+  stage: deploy
+  script:
+    - terraform apply

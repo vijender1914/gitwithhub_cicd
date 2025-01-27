@@ -2,16 +2,12 @@ provider "aws" {
     region = "ap-south-1"
   
 }
-
 resource "aws_s3_bucket" "testing-bucket" {
-    bucket = "testing-bucketxyzz111"
-  
+    bucket = "testing-bucketxyzz1111" 
 }
-    
-
 resource "aws_instance" "app_server" {
-  ami           = var.ami_type
-  instance_type = var.instance_option
+  ami           = "ami-08718895af4dfa033"
+  instance_type = "t2.micro"
   count         = 2
   tags = {
     Name = "Server${count.index}"

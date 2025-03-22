@@ -3,7 +3,7 @@ provider "aws" {
   
 }
 resource "aws_s3_bucket" "testing-bucket" {
-    bucket = "testing-bucketxyzz1111" 
+    bucket = "testing-bucketxyzzz1111" 
 }
 resource "aws_instance" "app_server" {
   ami           = "ami-08718895af4dfa033"
